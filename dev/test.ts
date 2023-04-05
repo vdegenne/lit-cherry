@@ -1,16 +1,15 @@
-import {LitCherry, html, customElement, debounce} from '../src/lit-cherry.js';
+import {LitCherry, html, customElement} from '../src/lit-cherry.js';
 
 @customElement('my-element')
-export class myElement extends LitCherry {
-  render() {
+export class MyElement extends LitCherry {
+  render({sayHello}) {
     return html`
-      <button @click=${this.sayHello}>say hello</button>
+      <button @click=${sayHello}>say hello</button>
 
       <div id="container"></div>
     `;
   }
 
-  @debounce(1000)
   sayHello() {
     this.$.container.textContent = 'Hello, world!';
   }

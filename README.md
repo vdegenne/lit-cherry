@@ -21,25 +21,27 @@ import {LitCherry, customElement, debounce, html} from 'lit-cherry';
 
 @customElement('my-element')
 export class myElement extends LitCherry {
-  render() {
+
+  render({ sayHello }) { // [2]
     return html`
-      <button @click=${this.sayHello}>say hello</button>
+      <button @click=${sayHello}>say hello</button>
 
       <div id="container"></div>
     `;
   }
 
-  @debounce(1000) // [2]
+  @debounce(1000) // [3]
   sayHello() {
-    // [3]
+    // [4]
     this.$.container.textContent = 'Hello, world!';
   }
 }
 ```
 
 - `[1]` import everything from one place
-- `[2]` support debouncing class methods
-- `[3]` `$` getter for your template's `id`s
+- `[2]` instance argument old syntax
+- `[3]` support debouncing class methods
+- `[4]` `$` getter for your template's `id`s
 
 
 ## Contributing
