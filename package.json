@@ -1,6 +1,6 @@
 {
   "name": "lit-cherry",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "lit-cherry.js",
   "module": "lit-cherry.js",
   "type": "module",

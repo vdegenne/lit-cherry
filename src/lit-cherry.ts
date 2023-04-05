@@ -14,7 +14,7 @@ export class LitCherry extends LitElement {
   }
 
   // @ts-ignore
-  render(subclassInstance: this) {}
+  render({}: this) {}
 }
 
 export * from 'lit';
