@@ -15,10 +15,6 @@ export class LitCherry extends LitElement {
 
   // @ts-ignore
   render(subclassInstance: this) {}
-  
-  // $(idSelector: string): HTMLElement {
-  //   return this.shadowRoot.querySelector(`#${idSelector}`);
-  // }
 }
 
 export * from 'lit';
@@ -31,11 +27,6 @@ export function customElement(tagName: string) {
     @_customElement(tagName)
     class clazz extends constructor {
       render() {
-        // console.log(this.constructor.prototype)
-        // const props = Object.fromEntries(
-        //   Object.keys(this.constructor.prototype).map((key) => [key, this[key]])
-        // );
-        // console.log(props);
         return super.render(this);
       }
     }

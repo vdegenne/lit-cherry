@@ -2,6 +2,7 @@ node_modules
 .wireit
 
 decorators
+!src/decorators
 lit-cherry.js
 lit-cherry.js.map
 lit-cherry.d.ts

@@ -46,4 +46,4 @@ export class myElement extends LitCherry {
 
 ## Contributing
 
-If you think about a cool feature to implement, please open an issue to let me know. I also accept PRs.
+If you think about a cool feature to implement, please open an issue to let me know. I also accept PR's.
