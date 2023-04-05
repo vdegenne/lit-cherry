@@ -1,0 +1,16 @@
+{
+  "name": "lit-cherry",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "serve": "vite --host",
+    "build": "tsc --build --pretty"
+  },
+  "dependencies": {
+    "lit": "^2.7.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.3",
+    "vite": "^4.2.0"
+  }
+}
