@@ -1,6 +1,7 @@
 {
   "name": "lit-cherry",
-  "version": "1.0.5",
+  "description": "A small cherry on lit",
+  "version": "2.7.2",
   "main": "lit-cherry.js",
   "module": "lit-cherry.js",
   "type": "module",
@@ -14,7 +15,7 @@
     "build": "tsc --build --pretty"
   },
   "dependencies": {
-    "lit": "^2.7.0"
+    "lit": "^2.7.2"
   },
   "devDependencies": {
     "typescript": "^5.0.3",

@@ -2,6 +2,7 @@ import {LitElement} from 'lit';
 import {customElement as _customElement} from 'lit/decorators.js';
 
 export {debounce} from './decorators/debounce.js';
+export {lock} from './decorators/lock.js';
 
 export class LitCherry extends LitElement {
   get $(): {[key: string]: HTMLElement} {
