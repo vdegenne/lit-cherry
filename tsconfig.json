@@ -12,6 +12,7 @@
     "outDir": "./",
     "rootDir": "./src",
     "types": [
+      "node",
       "vite/client"
     ]
   },

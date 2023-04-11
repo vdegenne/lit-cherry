@@ -60,12 +60,60 @@ import {LitElement} from 'npm:lit-cherry@2.7.2'
 // lit@2.7.2
 ```
 
-## @lock decorator
+## About decorators
+
+The decorators (`@debounce`, `@delay`, `@lock`) work on any class's method. In other words they are not specific to LitElement/LitCherry,
+```javascript
+import {debounce} from 'lit-cherry'
+
+class RandomClass {
+  @debounce(250)
+  static doSomething() {}
+}
+
+RandomClass.doSomething()
+```
+
+## @delay (alias: @timeout)
+
+Delay the execution of a method,
+
+```javascript
+class MyClass {
+  @delay(1000)
+  saySomething() {
+    console.log('Hello, you waited 1s.')
+  }
+}
+```
+Note that this decorator turns the method async, a `cancel` function is provided in case you want to stop the execution,
+```javascript
+class MyClass {
+  @delay(2000)
+  static returnSomething() {
+    return 'something';
+  }
+}
+
+let promise;
+promise = MyClass.returnSomething();
+console.log(await promise); // prints 'something' after 2 seconds
+
+promise = MyClass.returnSomething(); // new call
+promise.cancel(); // cancel the timeout
+try {
+  console.log(await promise); // promise was canceled, catch is called
+} catch (err) {
+  /* canceled, do something */
+}
+```
+
+## @lock
 
 `lock` decorator makes sure an async method is not called again before it has finished being executed. For example:
 
 ```javascript
-class MyElement extends LitCherry {
+class MyElement extends LitElement {
   @lock
   async saySomething() {
     console.log('something')

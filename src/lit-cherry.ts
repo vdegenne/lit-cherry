@@ -3,6 +3,8 @@ import {customElement as _customElement} from 'lit/decorators.js';
 
 export {debounce} from './decorators/debounce.js';
 export {lock} from './decorators/lock.js';
+export {delay, timeout} from './decorators/delay.js';
+export type {CancelablePromise as TimeoutPromise} from './decorators/delay.js';
 
 export class LitCherry extends LitElement {
   get $(): {[key: string]: HTMLElement} {

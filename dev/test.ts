@@ -1,33 +1,43 @@
-import {LitCherry, html, customElement, lock} from '../src/lit-cherry.js';
+import {delay} from '../src/lit-cherry.js';
 
-@customElement('my-element')
-export class MyElement extends LitCherry {
-  render({sayHello}) {
-    return html`
-      <button @click=${sayHello}>say hello</button>
+// @customElement('my-element')
+// export class MyElement extends LitCherry {
+//   render({sayHello}) {
+//     return html`
+//       <button @click=${sayHello}>say hello</button>
 
-      <div id="container"></div>
-    `;
-  }
+//       <div id="container"></div>
+//     `;
+//   }
 
-  // sayHello() {
-  //   this.$.container.textContent = 'Hello, world!';
-  // }
+//   // sayHello() {
+//   //   this.$.container.textContent = 'Hello, world!';
+//   // }
 
-  @lock
-  async returnSomething() {
-    return 'something'
+//   @lock
+//   async returnSomething() {
+//     return 'something'
+//   }
+// }
+
+class MyClass {
+  @delay(2000)
+  static returnSomething() {
+    return 'something';
   }
 }
 
-const myElement = new MyElement();
-document.body.append(myElement);
+let promise;
+promise = MyClass.returnSomething();
+try {
+  console.log(await promise); // prints 'something' after 2 seconds
+} catch (err) {}
 
-const initialPromise = myElement.returnSomething();
-const secondCall = myElement.returnSomething();
-console.log(initialPromise == secondCall);
-console.log(await initialPromise);
-console.log(await secondCall);
-
-const thirdCall = myElement.returnSomething();
-console.log(thirdCall == secondCall);
+promise = MyClass.returnSomething();
+promise.cancel();
+try {
+  console.log(await promise); // promise was canceled, catch is called
+} catch (err) {
+  /* canceled */
+  console.log('canceled');
+}
